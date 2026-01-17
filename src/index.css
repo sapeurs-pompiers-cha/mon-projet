@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Font Family Variables */
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  /* HSL Color Palette - Orange/Firefighter Theme */
+  --background: 20 20% 98%;
+  --foreground: 222 47% 11%;
+  
+  --primary: 15 90% 55%;
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 20 15% 94%;
+  --secondary-foreground: 222 47% 11%;
+  
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
+  
+  --accent: 15 85% 95%;
+  --accent-foreground: 15 90% 40%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
+  --ring: 15 90% 55%;
+  
+  --radius: 0.75rem;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --card-border: 220 13% 91%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --popover-border: 220 13% 91%;
+
+  /* Chart Colors */
+  --chart-1: 15 90% 55%;   /* Primary Orange */
+  --chart-2: 210 90% 55%;  /* Blue */
+  --chart-3: 142 70% 50%;  /* Green */
+  --chart-4: 262 80% 50%;  /* Purple */
+  --chart-5: 45 90% 55%;   /* Yellow */
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight text-foreground;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-white border border-border shadow-xl shadow-black/5;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary/20;
+  }
+}
+
+/* Ensure Select and Popover contents have solid backgrounds */
+[data-radix-popper-content-wrapper] > div {
+  @apply bg-white opacity-100 !important;
+  backdrop-filter: none !important;
+}
+
